@@ -68,24 +68,7 @@ abstract class TinkerwellDriver
 
         $drivers = array_merge($drivers, static::driversIn($projectPath . DIRECTORY_SEPARATOR . '.tinkerwell'));
 
-        $drivers = array_merge($drivers, [
-            'InfectionTinkerwellDriver',
-            'StatamicTinkerwellDriver',
-            'Drupal7TinkerwellDriver',
-            'Drupal8TinkerwellDriver',
-            'KirbyTinkerwellDriver',
-            'MoodleTinkerwellDriver',
-            'LaravelTinkerwellDriver',
-            'CraftTinkerwellDriver',
-            'Magento2TinkerwellDriver',
-            'LumenTinkerwellDriver',
-            'PrestaShopTinkerwellDriver',
-            'OctoberCMSTinkerwellDriver',
-            'WordpressTinkerwellDriver',
-            'ShopwareTinkerwellDriver',
-            'SymfonyTinkerwellDriver',
-            'Typo3TinkerwellDriver',
-        ]);
+        $drivers = array_merge($drivers, static::getAvailableDrivers());
 
         foreach ($drivers as $driver) {
             /** @var TinkerwellDriver $driver */
@@ -132,6 +115,27 @@ abstract class TinkerwellDriver
      */
     public function usesCollision() {
         return null;
+    }
+
+    public static function getAvailableDrivers() {
+        return [
+            'InfectionTinkerwellDriver',
+            'StatamicTinkerwellDriver',
+            'Drupal7TinkerwellDriver',
+            'Drupal8TinkerwellDriver',
+            'KirbyTinkerwellDriver',
+            'MoodleTinkerwellDriver',
+            'LaravelTinkerwellDriver',
+            'CraftTinkerwellDriver',
+            'Magento2TinkerwellDriver',
+            'LumenTinkerwellDriver',
+            'PrestaShopTinkerwellDriver',
+            'OctoberCMSTinkerwellDriver',
+            'WordpressTinkerwellDriver',
+            'ShopwareTinkerwellDriver',
+            'SymfonyTinkerwellDriver',
+            'Typo3TinkerwellDriver',
+        ];
     }
 
 }
