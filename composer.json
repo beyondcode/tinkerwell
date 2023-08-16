@@ -1,0 +1,45 @@
+{
+    "name": "beyondcode/tinkerwell",
+    "description": "Drivers, panels and tools for customizing Tinkerwell to your application.",
+    "keywords": [
+        "beyondcode",
+        "tinkerwell"
+    ],
+    "homepage": "https://github.com/beyondcode/tinkerwell",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Diana Scharf",
+            "email": "diana@beyondco.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tinkerwell\\": "src"
+        },
+        "classmap": [
+            "src/Drivers/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tinkerwell\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
