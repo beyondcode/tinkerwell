@@ -43,6 +43,13 @@ abstract class TinkerwellDriver
         ];
     }
 
+    /**
+     * Provides a custom context menu for the application.
+     *
+     * @deprecated Use appVersion() for version information instead. For SetCode, refer to the
+     * snippets feature, as seen in the documentation:
+     * https://tinkerwell.app/docs/3/advanced-usage/snippets
+     */
     public function contextMenu()
     {
         return [

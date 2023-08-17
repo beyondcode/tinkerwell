@@ -27,6 +27,20 @@ class WordpressTinkerwellDriver extends TinkerwellDriver
         return 'Wordpress ' . get_bloginfo('version');
     }
 
+    /**
+     * With panels, you can display general information as well as custom information about your
+     * application in the UI of Tinkerwell. For more information, check out the documentation:
+     * https://tinkerwell.app/docs/3/extending-tinkerwell/custom-drivers#panels
+     *
+     * @return array
+     */
+    public function appPanels()
+    {
+        return [
+            (new \Tinkerwell\Panels\WordpressPanel())->toArray()
+        ];
+    }
+
     public function contextMenu()
     {
         return [
