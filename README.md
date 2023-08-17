@@ -1,9 +1,5 @@
 # Tinkerwell Workbench
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/beyondcode/tinkerwell.svg?style=flat-square)](https://packagist.org/packages/beyondcode/tinkerwell)
-[![Total Downloads](https://img.shields.io/packagist/dt/beyondcode/tinkerwell.svg?style=flat-square)](https://packagist.org/packages/beyondcode/tinkerwell)
-![GitHub Actions](https://github.com/beyondcode/tinkerwell/actions/workflows/main.yml/badge.svg)
-
 ![Tinkerwell PHP REPL](https://tinkerwell.app/images/simple_screenshot.png)
 
 www.tinkerwell.app
