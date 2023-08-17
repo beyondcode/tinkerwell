@@ -18,6 +18,11 @@ class PrestaShopTinkerwellDriver extends TinkerwellDriver
         require $projectPath . '/config/config.inc.php';
     }
 
+    public function appVersion()
+    {
+        return 'PrestaShop v' . _PS_VERSION_;
+    }
+
     public function getAvailableVariables()
     {
         return [

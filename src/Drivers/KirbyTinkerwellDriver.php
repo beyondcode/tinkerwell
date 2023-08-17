@@ -18,6 +18,11 @@ class KirbyTinkerwellDriver extends TinkerwellDriver
         (new Kirby)->render();
     }
 
+    public function appVersion()
+    {
+        return 'Kirby v.' . Kirby::version();
+    }
+
     public function getAvailableVariables()
     {
         return [

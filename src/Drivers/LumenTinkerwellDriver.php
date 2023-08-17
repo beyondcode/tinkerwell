@@ -30,6 +30,11 @@ class LumenTinkerwellDriver extends TinkerwellDriver {
         $app->run();
     }
 
+    public function appVersion()
+    {
+        return 'Lumen ' . app()->version();
+    }
+
     /**
      * Basic context menu, confirming Lumen version and a link to the Lumen Documentation
      *

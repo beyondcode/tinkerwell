@@ -54,6 +54,11 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
         $this->version = $this->objectManager->get(ProductMetadata::class)->getVersion();
     }
 
+    public function appVersion()
+    {
+        return 'Magento ' . $this->version;
+    }
+
     public function getAvailableVariables()
     {
         return [

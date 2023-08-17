@@ -28,6 +28,11 @@ class SymfonyTinkerwellDriver extends TinkerwellDriver
         $this->kernel->boot();
     }
 
+    public function appVersion()
+    {
+        return 'Symfony ' . Symfony\Component\HttpKernel\Kernel::VERSION;
+    }
+
     public function getAvailableVariables()
     {
         return [

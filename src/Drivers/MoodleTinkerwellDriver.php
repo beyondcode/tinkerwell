@@ -18,6 +18,13 @@ class MoodleTinkerwellDriver extends TinkerwellDriver
         require $projectPath . '/config.php';
     }
 
+    public function appVersion()
+    {
+        global $CFG;
+        
+        return 'Moodle ' . $CFG->release;
+    }
+
     public function contextMenu()
     {
         global $CFG;

@@ -80,6 +80,11 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
         $this->container = $this->kernel->getContainer();
     }
 
+    public function appVersion()
+    {
+        return 'Shopware ' . $this->version . ', ' . 'APP_ENV=' . $this->appEnv . ', APP_DEBUG=1';
+    }
+
     public function getAvailableVariables(): array
     {
         return [

@@ -23,6 +23,11 @@ class Drupal8TinkerwellDriver extends TinkerwellDriver
         $kernel->preHandle($request);
     }
 
+    public function appVersion()
+    {
+        return 'Drupal v' . \Drupal::VERSION;
+    }
+
     public function contextMenu()
     {
         return [

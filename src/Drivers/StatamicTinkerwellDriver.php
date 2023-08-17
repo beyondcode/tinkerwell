@@ -30,11 +30,16 @@ class StatamicTinkerwellDriver extends LaravelTinkerwellDriver
         return file_exists($projectPath . '/vendor/statamic/cms');
     }
 
+    public function appVersion()
+    {
+        return 'Statamic v' . Statamic::version();
+    }
+
     public function contextMenu()
     {
         return array_merge(parent::contextMenu(), [
             Separator::create(),
-            
+
             Label::create('Detected Statamic v' . Statamic::version()),
 
             Submenu::create(

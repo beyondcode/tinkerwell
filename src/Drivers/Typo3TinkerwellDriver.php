@@ -46,6 +46,11 @@ class Typo3TinkerwellDriver extends TinkerwellDriver
         $this->documentation = TYPO3_URL_DOCUMENTATION;
     }
 
+    public function appVersion()
+    {
+        return 'TYPO3 ' . $this->version;
+    }
+
     /**
      * Basic context menu, confirming TYPO3 version and a link to the TYPO3 Documentation
      *

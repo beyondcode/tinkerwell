@@ -55,6 +55,11 @@ class CraftTinkerwellDriver extends TinkerwellDriver
         $this->version = $app->version;
     }
 
+    public function appVersion()
+    {
+        return 'Craft v' . $this->version;
+    }
+
     public function contextMenu()
     {
         return array_merge(parent::contextMenu(), [

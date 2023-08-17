@@ -30,6 +30,11 @@ class Drupal7TinkerwellDriver extends TinkerwellDriver
         drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
     }
 
+    public function appVersion()
+    {
+        return 'Drupal v' . VERSION;
+    }
+
     public function contextMenu()
     {
         return [
