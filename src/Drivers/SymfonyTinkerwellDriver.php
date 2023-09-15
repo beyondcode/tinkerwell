@@ -1,11 +1,9 @@
 <?php
 
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\OpenURL;
-use Tinkerwell\ContextMenu\SetCode;
-use Tinkerwell\ContextMenu\Submenu;
 use App\Kernel;
 use Symfony\Component\Dotenv\Dotenv;
+use Tinkerwell\ContextMenu\Label;
+use Tinkerwell\ContextMenu\OpenURL;
 
 class SymfonyTinkerwellDriver extends TinkerwellDriver
 {
@@ -13,9 +11,9 @@ class SymfonyTinkerwellDriver extends TinkerwellDriver
 
     public function canBootstrap($projectPath)
     {
-        return file_exists($projectPath . '/public/index.php') &&
-            file_exists($projectPath . '/symfony.lock') &&
-            file_exists($projectPath . '/bin/console');
+        return file_exists($projectPath.'/public/index.php') &&
+            file_exists($projectPath.'/symfony.lock') &&
+            file_exists($projectPath.'/bin/console');
     }
 
     public function bootstrap($projectPath)
@@ -30,7 +28,7 @@ class SymfonyTinkerwellDriver extends TinkerwellDriver
 
     public function appVersion()
     {
-        return 'Symfony ' . Symfony\Component\HttpKernel\Kernel::VERSION;
+        return 'Symfony '.Symfony\Component\HttpKernel\Kernel::VERSION;
     }
 
     public function getAvailableVariables()
@@ -46,7 +44,7 @@ class SymfonyTinkerwellDriver extends TinkerwellDriver
         $version = Symfony\Component\HttpKernel\Kernel::VERSION;
 
         return [
-            Label::create('Detected Symfony v' . $version),
+            Label::create('Detected Symfony v'.$version),
             OpenURL::create('Documentation', "https://symfony.com/doc/{$version}/setup.html"),
         ];
     }

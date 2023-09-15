@@ -7,9 +7,7 @@ use Magento\Framework\Console\Cli;
 use Magento\Framework\Console\CommandList;
 use Magento\Framework\ObjectManager\ConfigLoaderInterface;
 use Magento\Framework\ObjectManagerInterface;
-use Tinkerwell\ContextMenu\Label;
 use Tinkerwell\ContextMenu\SetCode;
-use Tinkerwell\ContextMenu\Submenu;
 
 class Magento2TinkerwellDriver extends TinkerwellDriver
 {
@@ -30,14 +28,14 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
 
     public function canBootstrap($projectPath): bool
     {
-        return file_exists($projectPath . '/app/etc/env.php');
+        return file_exists($projectPath.'/app/etc/env.php');
     }
 
     public function bootstrap($projectPath)
     {
-        require $projectPath . '/app/bootstrap.php';
+        require $projectPath.'/app/bootstrap.php';
         // Magento 2.3.1 removes phar stream wrapper.
-        if (!in_array('phar', \stream_get_wrappers())) {
+        if (! in_array('phar', \stream_get_wrappers())) {
             \stream_wrapper_restore('phar');
         }
 
@@ -56,7 +54,7 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
 
     public function appVersion()
     {
-        return 'Magento ' . $this->version;
+        return 'Magento '.$this->version;
     }
 
     public function getAvailableVariables()
@@ -67,10 +65,10 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
             {
                 public function loadArea(string $area): void
                 {
-                    $om           = App\ObjectManager::getInstance();
-                    $appState     = $om->get(App\State::class);
+                    $om = App\ObjectManager::getInstance();
+                    $appState = $om->get(App\State::class);
                     $configLoader = $om->get(ConfigLoaderInterface::class);
-                    $areaList     = $om->get(App\AreaList::class);
+                    $areaList = $om->get(App\AreaList::class);
 
                     $appState->setAreaCode($area);
                     $om->configure($configLoader->load($area));
@@ -84,8 +82,8 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
 
     private function cliSubmenu()
     {
-        $commandTemplate = <<<EOI
-\$runCliCommand('%s', [
+        $commandTemplate = <<<'EOI'
+$runCliCommand('%s', [
     // (optional) define the value of command arguments
     // 'fooArgument' => 'barValue',
 ]);

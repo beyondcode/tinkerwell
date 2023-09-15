@@ -24,21 +24,21 @@ class Drupal7TinkerwellDriver extends TinkerwellDriver
         $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['SERVER_SOFTWARE'] = $_SERVER['HTTP_USER_AGENT'] = null;
-        $_SERVER['SCRIPT_FILENAME'] = DRUPAL_ROOT . '/index.php';
+        $_SERVER['SCRIPT_FILENAME'] = DRUPAL_ROOT.'/index.php';
 
-        require_once(DRUPAL_ROOT . '/includes/bootstrap.inc');
+        require_once DRUPAL_ROOT.'/includes/bootstrap.inc';
         drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
     }
 
     public function appVersion()
     {
-        return 'Drupal v' . VERSION;
+        return 'Drupal v'.VERSION;
     }
 
     public function contextMenu()
     {
         return [
-            Label::create('Detected Drupal v' . VERSION)
+            Label::create('Detected Drupal v'.VERSION),
         ];
     }
 
@@ -52,7 +52,7 @@ class Drupal7TinkerwellDriver extends TinkerwellDriver
             return file_exists($path);
         });
 
-        if (!empty($foundPaths)) {
+        if (! empty($foundPaths)) {
             return array_shift($foundPaths);
         }
 

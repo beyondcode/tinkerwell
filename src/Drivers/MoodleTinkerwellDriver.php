@@ -7,22 +7,22 @@ class MoodleTinkerwellDriver extends TinkerwellDriver
 {
     public function canBootstrap($projectPath)
     {
-        return file_exists($projectPath . '/config.php')
-            && file_exists($projectPath . '/course')
-            && file_exists($projectPath . '/grade');
+        return file_exists($projectPath.'/config.php')
+            && file_exists($projectPath.'/course')
+            && file_exists($projectPath.'/grade');
     }
 
     public function bootstrap($projectPath)
     {
         define('CLI_SCRIPT', true);
-        require $projectPath . '/config.php';
+        require $projectPath.'/config.php';
     }
 
     public function appVersion()
     {
         global $CFG;
-        
-        return 'Moodle ' . $CFG->release;
+
+        return 'Moodle '.$CFG->release;
     }
 
     public function contextMenu()
@@ -30,7 +30,7 @@ class MoodleTinkerwellDriver extends TinkerwellDriver
         global $CFG;
 
         return [
-            Label::create('Detected Moodle ' . $CFG->release),
+            Label::create('Detected Moodle '.$CFG->release),
             OpenURL::create('Developer Documentation', 'https://docs.moodle.org/dev/'),
         ];
     }
