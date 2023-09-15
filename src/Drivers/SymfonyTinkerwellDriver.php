@@ -2,8 +2,6 @@
 
 use App\Kernel;
 use Symfony\Component\Dotenv\Dotenv;
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\OpenURL;
 
 class SymfonyTinkerwellDriver extends TinkerwellDriver
 {
