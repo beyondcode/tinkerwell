@@ -7,13 +7,13 @@ final class InfectionTinkerwellDriver extends TinkerwellDriver
 {
     public function canBootstrap($projectPath)
     {
-        return file_exists($projectPath . '/bin/infection') &&
-            file_exists($projectPath . '/bin/infection-debug');
+        return file_exists($projectPath.'/bin/infection') &&
+            file_exists($projectPath.'/bin/infection-debug');
     }
 
     public function bootstrap($projectPath)
     {
-        require_once $projectPath . '/vendor/autoload.php';
+        require_once $projectPath.'/vendor/autoload.php';
     }
 
     public function getAvailableVariables()
@@ -22,7 +22,7 @@ final class InfectionTinkerwellDriver extends TinkerwellDriver
         $container = $container->withDynamicParameters(
             null,
             '',
-           false,
+            false,
             'default',
             false,
             false,

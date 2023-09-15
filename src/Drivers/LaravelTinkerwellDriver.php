@@ -1,14 +1,9 @@
 <?php
 
-use Illuminate\Support\Str;
 use Tinkerwell\ContextMenu\Label;
 use Tinkerwell\ContextMenu\OpenURL;
 use Tinkerwell\ContextMenu\SetCode;
-use Tinkerwell\ContextMenu\Submenu;
 
-/**
- *
- */
 class LaravelTinkerwellDriver extends TinkerwellDriver
 {
     public function canBootstrap($projectPath)
@@ -51,20 +46,20 @@ class LaravelTinkerwellDriver extends TinkerwellDriver
      */
     public function appVersion()
     {
-        return 'Laravel ' . app()->version();
+        return 'Laravel '.app()->version();
     }
 
     /**
      * With panels, you can display general information as well as custom information about your
      * application in the UI of Tinkerwell. For more information, check out the documentation:
-     * https://tinkerwell.app/docs/3/extending-tinkerwell/custom-drivers#panels
+     * https://tinkerwell.app/docs/3/extending-tinkerwell/custom-drivers#panels.
      *
      * @return array
      */
     public function appPanels()
     {
         return [
-            (new \Tinkerwell\Panels\LaravelPanel())->toArray()
+            (new \Tinkerwell\Panels\LaravelPanel())->toArray(),
         ];
     }
 }

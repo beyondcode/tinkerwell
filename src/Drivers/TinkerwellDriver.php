@@ -3,9 +3,8 @@
 //namespace Tinkerwell\Drivers;
 
 use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\Submenu;
-use Tinkerwell\ContextMenu\SetCode;
 use Tinkerwell\ContextMenu\OpenURL;
+use Tinkerwell\ContextMenu\SetCode;
 
 abstract class TinkerwellDriver
 {
@@ -13,7 +12,7 @@ abstract class TinkerwellDriver
      * Determine if the driver can be used with the selected project path.
      * You most likely want to check the existence of project / framework specific files.
      *
-     * @param string $projectPath
+     * @param  string  $projectPath
      * @return bool
      */
     abstract public function canBootstrap($projectPath);
@@ -21,25 +20,26 @@ abstract class TinkerwellDriver
     /**
      * Bootstrap the application so that any executed can access the application in your desired state.
      *
-     * @param string $projectPath
+     * @param  string  $projectPath
      */
     abstract public function bootstrap($projectPath);
 
-    public function appVersion() {
-        return "";
+    public function appVersion()
+    {
+        return '';
     }
 
     /**
      * With panels, you can display general information as well as custom information about your
      * application in the UI of Tinkerwell. For more information, check out the documentation:
-     * https://tinkerwell.app/docs/3/extending-tinkerwell/custom-drivers#panels
+     * https://tinkerwell.app/docs/3/extending-tinkerwell/custom-drivers#panels.
      *
      * @return array
      */
     public function appPanels()
     {
         return [
-            (new \Tinkerwell\Panels\DefaultPanel())->toArray()
+            (new \Tinkerwell\Panels\DefaultPanel())->toArray(),
         ];
     }
 
@@ -68,12 +68,11 @@ abstract class TinkerwellDriver
     {
         $drivers = [];
 
-
         if (defined('TINKERWELL_HOME_PATH') && is_dir(TINKERWELL_HOME_PATH)) {
             $drivers = array_merge($drivers, static::driversIn(TINKERWELL_HOME_PATH));
         }
 
-        $drivers = array_merge($drivers, static::driversIn($projectPath . DIRECTORY_SEPARATOR . '.tinkerwell'));
+        $drivers = array_merge($drivers, static::driversIn($projectPath.DIRECTORY_SEPARATOR.'.tinkerwell'));
 
         $drivers = array_merge($drivers, static::getAvailableDrivers());
 
@@ -96,12 +95,12 @@ abstract class TinkerwellDriver
     /**
      * Get all of the driver classes in a given path.
      *
-     * @param string $path
+     * @param  string  $path
      * @return array
      */
     public static function driversIn($path)
     {
-        if (!is_dir($path)) {
+        if (! is_dir($path)) {
             return [];
         }
         $drivers = [];
@@ -112,6 +111,7 @@ abstract class TinkerwellDriver
             require_once $file[0];
             $drivers[] = basename($file[0], '.php');
         }
+
         return $drivers;
     }
 
@@ -120,11 +120,13 @@ abstract class TinkerwellDriver
      *
      * @return bool|null
      */
-    public function usesCollision() {
+    public function usesCollision()
+    {
         return null;
     }
 
-    public static function getAvailableDrivers() {
+    public static function getAvailableDrivers()
+    {
         return [
             'InfectionTinkerwellDriver',
             'StatamicTinkerwellDriver',
@@ -144,5 +146,4 @@ abstract class TinkerwellDriver
             'Typo3TinkerwellDriver',
         ];
     }
-
 }

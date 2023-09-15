@@ -2,7 +2,6 @@
 
 class NullTinkerwellDriver extends TinkerwellDriver
 {
-
     public function canBootstrap($projectPath)
     {
         return false;
@@ -10,8 +9,8 @@ class NullTinkerwellDriver extends TinkerwellDriver
 
     public function bootstrap($projectPath)
     {
-        if (file_exists($projectPath . '/vendor/autoload.php')) {
-            require $projectPath . '/vendor/autoload.php';
+        if (file_exists($projectPath.'/vendor/autoload.php')) {
+            require $projectPath.'/vendor/autoload.php';
         }
     }
 }

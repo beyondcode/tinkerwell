@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Tinkerwell\Panels\Table;
 
 class Table
 {
-
     protected $sections = [];
 
     public static function make()
@@ -16,6 +14,7 @@ class Table
     public function addSection(Section $section)
     {
         $this->sections[$section->getTitle()] = $section->toArray();
+
         return $this;
     }
 
@@ -23,5 +22,4 @@ class Table
     {
         return $this->sections;
     }
-
 }
