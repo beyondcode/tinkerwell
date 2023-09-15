@@ -6,8 +6,8 @@ class CraftTinkerwellDriver extends TinkerwellDriver
 
     public function canBootstrap($projectPath)
     {
-        return file_exists($projectPath . '/web/index.php') &&
-            file_exists($projectPath . '/craft');
+        return file_exists($projectPath.'/web/index.php') &&
+            file_exists($projectPath.'/craft');
     }
 
     public function bootstrap($projectPath)
@@ -23,10 +23,12 @@ class CraftTinkerwellDriver extends TinkerwellDriver
         if (class_exists('Dotenv\Dotenv') && file_exists(CRAFT_BASE_PATH.'/.env')) {
             $dotenvMajorVersion = null;
 
-            if ( file_exists(CRAFT_VENDOR_PATH.'/composer/installed.json') ) {
+            if (file_exists(CRAFT_VENDOR_PATH.'/composer/installed.json')) {
                 $installedPackages = json_decode(file_get_contents(CRAFT_VENDOR_PATH.'/composer/installed.json'));
                 foreach ($installedPackages->packages as $package) {
-                    if ($package->name == 'vlucas/phpdotenv') $dotenvMajorVersion = substr($package->version,1,1);
+                    if ($package->name == 'vlucas/phpdotenv') {
+                        $dotenvMajorVersion = substr($package->version, 1, 1);
+                    }
                 }
             }
 
@@ -53,6 +55,6 @@ class CraftTinkerwellDriver extends TinkerwellDriver
 
     public function appVersion()
     {
-        return 'Craft v' . $this->version;
+        return 'Craft v'.$this->version;
     }
 }

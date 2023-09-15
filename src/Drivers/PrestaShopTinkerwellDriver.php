@@ -1,21 +1,21 @@
 <?php
+
 class PrestaShopTinkerwellDriver extends TinkerwellDriver
 {
-
     public function canBootstrap($projectPath)
     {
-        return is_file($projectPath . '/config/config.inc.php')
-            && is_dir($projectPath . '/src/PrestaShopBundle');
+        return is_file($projectPath.'/config/config.inc.php')
+            && is_dir($projectPath.'/src/PrestaShopBundle');
     }
 
     public function bootstrap($projectPath)
     {
-        require $projectPath . '/config/config.inc.php';
+        require $projectPath.'/config/config.inc.php';
     }
 
     public function appVersion()
     {
-        return 'PrestaShop v' . _PS_VERSION_;
+        return 'PrestaShop v'._PS_VERSION_;
     }
 
     public function getAvailableVariables()
@@ -24,5 +24,4 @@ class PrestaShopTinkerwellDriver extends TinkerwellDriver
             '__context' => Context::getContext(),
         ];
     }
-
 }

@@ -2,13 +2,11 @@
 
 namespace Tinkerwell\Panels;
 
-use Illuminate\Support\Facades\Artisan;
 use Tinkerwell\Panels\Table\Section;
 use Tinkerwell\Panels\Table\Table;
 
 class LaravelPanel extends Panel
 {
-
     public function __construct()
     {
         $this->setTitle('App Information');
@@ -21,18 +19,17 @@ class LaravelPanel extends Panel
             } else {
                 $about = $this->getBasicInformation();
             }
-        } catch (Throwable $e) {}
+        } catch (Throwable $e) {
+        }
 
         $this->setContent($about);
     }
-
 
     protected function getAboutInformation()
     {
         \Illuminate\Support\Facades\Artisan::call('about --json');
 
         $about = collect(json_decode(\Illuminate\Support\Facades\Artisan::output(), true));
-
 
         $information = Table::make();
 
@@ -64,12 +61,12 @@ class LaravelPanel extends Panel
         $information = Table::make();
 
         $appData = [
-            "Application Name" => config('app.name'),
-            "Laravel Version" => app()->version(),
-            "PHP Version" => PHP_VERSION,
-            "Environment" => config('app.env'),
-            "Debug Mode" => config('app.debug') ? 'ENABLED' : 'NOT ENABLED',
-            "URL" => config('app.url'),
+            'Application Name' => config('app.name'),
+            'Laravel Version' => app()->version(),
+            'PHP Version' => PHP_VERSION,
+            'Environment' => config('app.env'),
+            'Debug Mode' => config('app.debug') ? 'ENABLED' : 'NOT ENABLED',
+            'URL' => config('app.url'),
         ];
 
         $section = Section::make()
@@ -83,5 +80,4 @@ class LaravelPanel extends Panel
 
         return $information;
     }
-
 }

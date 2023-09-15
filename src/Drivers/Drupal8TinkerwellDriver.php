@@ -13,7 +13,7 @@ class Drupal8TinkerwellDriver extends TinkerwellDriver
     {
         $projectPath = $this->getDrupalPath($projectPath);
         chdir($projectPath);
-        $autoloader = require_once('autoload.php');
+        $autoloader = require_once 'autoload.php';
 
         $request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
         $kernel = \Drupal\Core\DrupalKernel::createFromRequest($request, $autoloader, 'prod');
@@ -23,7 +23,7 @@ class Drupal8TinkerwellDriver extends TinkerwellDriver
 
     public function appVersion()
     {
-        return 'Drupal v' . \Drupal::VERSION;
+        return 'Drupal v'.\Drupal::VERSION;
     }
 
     public function getDrupalPath($projectPath)
@@ -36,7 +36,7 @@ class Drupal8TinkerwellDriver extends TinkerwellDriver
             return file_exists($path);
         });
 
-        if (!empty($foundPaths)) {
+        if (! empty($foundPaths)) {
             return array_shift($foundPaths);
         }
 
