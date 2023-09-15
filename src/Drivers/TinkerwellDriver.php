@@ -2,10 +2,6 @@
 
 //namespace Tinkerwell\Drivers;
 
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\Submenu;
-use Tinkerwell\ContextMenu\SetCode;
-use Tinkerwell\ContextMenu\OpenURL;
 
 abstract class TinkerwellDriver
 {
@@ -40,22 +36,6 @@ abstract class TinkerwellDriver
     {
         return [
             (new \Tinkerwell\Panels\DefaultPanel())->toArray()
-        ];
-    }
-
-    /**
-     * Provides a custom context menu for the application.
-     *
-     * @deprecated Use appVersion() for version information instead. For SetCode, refer to the
-     * snippets feature, as seen in the documentation:
-     * https://tinkerwell.app/docs/3/advanced-usage/snippets
-     */
-    public function contextMenu()
-    {
-        return [
-            Label::create('Tinkerwell'),
-
-            OpenURL::create('Documentation', 'https://tinkerwell.app'),
         ];
     }
 

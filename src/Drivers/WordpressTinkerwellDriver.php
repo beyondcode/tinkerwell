@@ -1,6 +1,5 @@
 <?php
 
-use Tinkerwell\ContextMenu\Label;
 
 class WordpressTinkerwellDriver extends TinkerwellDriver
 {
@@ -41,12 +40,6 @@ class WordpressTinkerwellDriver extends TinkerwellDriver
         ];
     }
 
-    public function contextMenu()
-    {
-        return [
-            Label::create('Detected Wordpress v' . get_bloginfo('version')),
-        ];
-    }
 
     public function usesCollision()
     {

@@ -1,7 +1,5 @@
 <?php
 
-use Tinkerwell\ContextMenu\Label;
-
 class Drupal7TinkerwellDriver extends TinkerwellDriver
 {
     public function canBootstrap($projectPath)
@@ -33,13 +31,6 @@ class Drupal7TinkerwellDriver extends TinkerwellDriver
     public function appVersion()
     {
         return 'Drupal v' . VERSION;
-    }
-
-    public function contextMenu()
-    {
-        return [
-            Label::create('Detected Drupal v' . VERSION)
-        ];
     }
 
     public function getDrupalPath($projectPath)

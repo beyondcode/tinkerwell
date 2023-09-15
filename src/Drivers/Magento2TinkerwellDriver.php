@@ -7,9 +7,6 @@ use Magento\Framework\Console\Cli;
 use Magento\Framework\Console\CommandList;
 use Magento\Framework\ObjectManager\ConfigLoaderInterface;
 use Magento\Framework\ObjectManagerInterface;
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\SetCode;
-use Tinkerwell\ContextMenu\Submenu;
 
 class Magento2TinkerwellDriver extends TinkerwellDriver
 {

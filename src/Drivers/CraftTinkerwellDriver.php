@@ -1,9 +1,5 @@
 <?php
 
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\OpenURL;
-use Tinkerwell\ContextMenu\Separator;
-
 class CraftTinkerwellDriver extends TinkerwellDriver
 {
     private $version;
@@ -58,14 +54,5 @@ class CraftTinkerwellDriver extends TinkerwellDriver
     public function appVersion()
     {
         return 'Craft v' . $this->version;
-    }
-
-    public function contextMenu()
-    {
-        return array_merge(parent::contextMenu(), [
-            Separator::create(),
-            Label::create('Detected Craft v' . $this->version),
-            OpenURL::create('Documentation', 'https://docs.craftcms.com'),
-        ]);
     }
 }

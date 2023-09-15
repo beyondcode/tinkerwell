@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Support\Str;
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\OpenURL;
-use Tinkerwell\ContextMenu\SetCode;
-use Tinkerwell\ContextMenu\Submenu;
 
 /**
  *
@@ -28,21 +24,6 @@ class LaravelTinkerwellDriver extends TinkerwellDriver
         $kernel->bootstrap();
     }
 
-    /**
-     * Provides a custom context menu for the application.
-     *
-     * @deprecated Use appVersion() for version information instead. For SetCode, refer to the
-     * snippets feature, as seen in the documentation:
-     * https://tinkerwell.app/docs/3/advanced-usage/snippets
-     */
-    public function contextMenu()
-    {
-        return [
-            Label::create('Detected Laravel v'.app()->version()),
-
-            OpenURL::create('Documentation', 'https://laravel.com/docs'),
-        ];
-    }
 
     /**
      * Returns the application version.

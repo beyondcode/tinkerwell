@@ -1,7 +1,5 @@
 <?php
 
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\OpenURL;
 
 class MoodleTinkerwellDriver extends TinkerwellDriver
 {
@@ -21,17 +19,7 @@ class MoodleTinkerwellDriver extends TinkerwellDriver
     public function appVersion()
     {
         global $CFG;
-        
+
         return 'Moodle ' . $CFG->release;
-    }
-
-    public function contextMenu()
-    {
-        global $CFG;
-
-        return [
-            Label::create('Detected Moodle ' . $CFG->release),
-            OpenURL::create('Developer Documentation', 'https://docs.moodle.org/dev/'),
-        ];
     }
 }
