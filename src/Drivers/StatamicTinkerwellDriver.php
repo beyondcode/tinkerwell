@@ -22,12 +22,12 @@ class StatamicTinkerwellDriver extends LaravelTinkerwellDriver
 
     public function canBootstrap($projectPath)
     {
-        return file_exists($projectPath . '/vendor/statamic/cms');
+        return file_exists($projectPath.'/vendor/statamic/cms');
     }
 
     public function appVersion()
     {
-        return 'Statamic v' . Statamic::version();
+        return 'Statamic v'.Statamic::version();
     }
 
     protected function registerAliases($projectPath)

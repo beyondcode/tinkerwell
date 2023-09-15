@@ -24,21 +24,21 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
 
     public function canBootstrap($projectPath): bool
     {
-        return file_exists($projectPath . '/symfony.lock') &&
+        return file_exists($projectPath.'/symfony.lock') &&
             (
-                file_exists($projectPath . '/src/Core/Framework/ShopwareHttpException.php') || # platform repo direct
-                file_exists($projectPath . '/vendor/shopware/platform/src/Core/Framework/ShopwareHttpException.php') || # platform repo as composer dep
-                file_exists($projectPath . '/vendor/shopware/core/Framework/ShopwareHttpException.php') # platform repo as split in composer
+                file_exists($projectPath.'/src/Core/Framework/ShopwareHttpException.php') || // platform repo direct
+                file_exists($projectPath.'/vendor/shopware/platform/src/Core/Framework/ShopwareHttpException.php') || // platform repo as composer dep
+                file_exists($projectPath.'/vendor/shopware/core/Framework/ShopwareHttpException.php') // platform repo as split in composer
             );
     }
 
     public function bootstrap($projectPath): void
     {
-        $classLoader = require $projectPath . '/vendor/autoload.php';
+        $classLoader = require $projectPath.'/vendor/autoload.php';
 
         $projectRoot = $projectPath;
-        if (class_exists(Dotenv::class) && (file_exists($projectRoot . '/.env.local.php') || file_exists($projectRoot . '/.env') || file_exists($projectRoot . '/.env.dist'))) {
-            (new Dotenv())->usePutenv()->setProdEnvs(['prod', 'e2e'])->bootEnv($projectRoot . '/.env');
+        if (class_exists(Dotenv::class) && (file_exists($projectRoot.'/.env.local.php') || file_exists($projectRoot.'/.env') || file_exists($projectRoot.'/.env.dist'))) {
+            (new Dotenv())->usePutenv()->setProdEnvs(['prod', 'e2e'])->bootEnv($projectRoot.'/.env');
         }
 
         $this->version = InstalledVersions::getVersion('shopware/core');
@@ -53,7 +53,8 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
 
         define('PROJECT_ROOT', $projectRoot);
 
-        $this->kernel = new class($this->appEnv, true, $pluginLoader, 'cache-id') extends CoreKernel {
+        $this->kernel = new class($this->appEnv, true, $pluginLoader, 'cache-id') extends CoreKernel
+        {
             public function getProjectDir(): string
             {
                 return PROJECT_ROOT;
@@ -61,7 +62,7 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
 
             protected function buildContainer(): ContainerBuilder
             {
-                $container =  parent::buildContainer();
+                $container = parent::buildContainer();
 
                 foreach ($container->getDefinitions() as $definition) {
                     $definition->setPublic(true);
@@ -78,7 +79,7 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
 
     public function appVersion()
     {
-        return 'Shopware ' . $this->version . ', ' . 'APP_ENV=' . $this->appEnv . ', APP_DEBUG=1';
+        return 'Shopware '.$this->version.', '.'APP_ENV='.$this->appEnv.', APP_DEBUG=1';
     }
 
     public function getAvailableVariables(): array

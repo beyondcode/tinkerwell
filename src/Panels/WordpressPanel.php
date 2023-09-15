@@ -7,7 +7,6 @@ use Tinkerwell\Panels\Table\Table;
 
 class WordpressPanel extends Panel
 {
-
     public function __construct()
     {
         $this->setTitle('App Information');
@@ -24,5 +23,4 @@ class WordpressPanel extends Panel
                 )
         );
     }
-
 }

@@ -9,9 +9,9 @@ class SymfonyTinkerwellDriver extends TinkerwellDriver
 
     public function canBootstrap($projectPath)
     {
-        return file_exists($projectPath . '/public/index.php') &&
-            file_exists($projectPath . '/symfony.lock') &&
-            file_exists($projectPath . '/bin/console');
+        return file_exists($projectPath.'/public/index.php') &&
+            file_exists($projectPath.'/symfony.lock') &&
+            file_exists($projectPath.'/bin/console');
     }
 
     public function bootstrap($projectPath)
@@ -26,7 +26,7 @@ class SymfonyTinkerwellDriver extends TinkerwellDriver
 
     public function appVersion()
     {
-        return 'Symfony ' . Symfony\Component\HttpKernel\Kernel::VERSION;
+        return 'Symfony '.Symfony\Component\HttpKernel\Kernel::VERSION;
     }
 
     public function getAvailableVariables()
