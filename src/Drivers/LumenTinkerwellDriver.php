@@ -1,8 +1,5 @@
 <?php
 
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\OpenURL;
-
 class LumenTinkerwellDriver extends TinkerwellDriver
 {
     /**
@@ -31,19 +28,5 @@ class LumenTinkerwellDriver extends TinkerwellDriver
     public function appVersion()
     {
         return 'Lumen '.app()->version();
-    }
-
-    /**
-     * Basic context menu, confirming Lumen version and a link to the Lumen Documentation.
-     *
-     * @return array
-     */
-    public function contextMenu()
-    {
-        return [
-            Label::create('Lumen Detected:'),
-            Label::create(app()->version()),
-            OpenURL::create('Documentation', 'https://lumen.laravel.com/docs/6.x'),
-        ];
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 use Infection\Container;
-use Tinkerwell\ContextMenu\Label;
 
 final class InfectionTinkerwellDriver extends TinkerwellDriver
 {
@@ -40,13 +39,6 @@ final class InfectionTinkerwellDriver extends TinkerwellDriver
 
         return [
             'container' => $container,
-        ];
-    }
-
-    public function contextMenu()
-    {
-        return [
-            Label::create('Detected Infection'),
         ];
     }
 }

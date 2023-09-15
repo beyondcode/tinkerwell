@@ -1,7 +1,5 @@
 <?php
 
-use Tinkerwell\ContextMenu\Label;
-
 class WordpressTinkerwellDriver extends TinkerwellDriver
 {
     public function canBootstrap($projectPath)
@@ -37,13 +35,6 @@ class WordpressTinkerwellDriver extends TinkerwellDriver
     {
         return [
             (new \Tinkerwell\Panels\WordpressPanel())->toArray(),
-        ];
-    }
-
-    public function contextMenu()
-    {
-        return [
-            Label::create('Detected Wordpress v'.get_bloginfo('version')),
         ];
     }
 

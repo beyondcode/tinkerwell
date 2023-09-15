@@ -7,7 +7,6 @@ use Magento\Framework\Console\Cli;
 use Magento\Framework\Console\CommandList;
 use Magento\Framework\ObjectManager\ConfigLoaderInterface;
 use Magento\Framework\ObjectManagerInterface;
-use Tinkerwell\ContextMenu\SetCode;
 
 class Magento2TinkerwellDriver extends TinkerwellDriver
 {
@@ -78,22 +77,6 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
                 }
             },
         ];
-    }
-
-    private function cliSubmenu()
-    {
-        $commandTemplate = <<<'EOI'
-$runCliCommand('%s', [
-    // (optional) define the value of command arguments
-    // 'fooArgument' => 'barValue',
-]);
-EOI;
-
-        $commands = array_map(function (Command $command) use ($commandTemplate) {
-            return SetCode::create($command->getName(), sprintf($commandTemplate, $command->getName()));
-        }, $this->commandList);
-
-        return array_values($commands);
     }
 
     /**

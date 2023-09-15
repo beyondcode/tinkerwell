@@ -6,10 +6,6 @@ use Shopware\Core\Framework\Plugin\KernelPluginLoader\DbalKernelPluginLoader;
 use Shopware\Core\Kernel as CoreKernel;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Dotenv\Dotenv;
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\OpenURL;
-use Tinkerwell\ContextMenu\SetCode;
-use Tinkerwell\ContextMenu\Submenu;
 
 class ShopwareTinkerwellDriver extends TinkerwellDriver
 {
@@ -92,25 +88,6 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
             'kernel' => $this->kernel,
             'container' => $this->container,
             'definitions' => $this->container->get(DefinitionInstanceRegistry::class),
-        ];
-    }
-
-    public function contextMenu()
-    {
-        return [
-            Label::create('Detected Shopware '.$this->version.', '.'APP_ENV='.$this->appEnv.', APP_DEBUG=1'),
-
-            Submenu::create('Snippets', [
-                SetCode::create('Fetch all products', <<<'PHP'
-use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Shopware\Core\Framework\Context;
-
-$products = $container->get('product.repository')->search(new Criteria(), Context::createDefaultContext());
-$products->first();
-PHP),
-            ]),
-
-            OpenURL::create('Documentation', 'https://developer.shopware.com'),
         ];
     }
 }

@@ -2,8 +2,6 @@
 
 use App\Kernel;
 use Symfony\Component\Dotenv\Dotenv;
-use Tinkerwell\ContextMenu\Label;
-use Tinkerwell\ContextMenu\OpenURL;
 
 class SymfonyTinkerwellDriver extends TinkerwellDriver
 {
@@ -36,16 +34,6 @@ class SymfonyTinkerwellDriver extends TinkerwellDriver
         return [
             'kernel' => $this->kernel,
             'container' => $this->kernel->getContainer(),
-        ];
-    }
-
-    public function contextMenu()
-    {
-        $version = Symfony\Component\HttpKernel\Kernel::VERSION;
-
-        return [
-            Label::create('Detected Symfony v'.$version),
-            OpenURL::create('Documentation', "https://symfony.com/doc/{$version}/setup.html"),
         ];
     }
 }
