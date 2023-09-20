@@ -42,4 +42,20 @@ class WordpressTinkerwellDriver extends TinkerwellDriver
     {
         return false;
     }
+
+    public function injectQueryLogging($code)
+    {
+        $codePrefix = <<<'EOT'
+try {
+    if (! defined('SAVEQUERIES') || ! SAVEQUERIES) {
+        define('SAVEQUERIES', true);
+    }
+    add_filter('log_query_custom_data', function ($data, $query, $timeInSeconds) {
+        __tinkerwell_query($query);
+    }, 1, 3);
+} catch (\Throwable $e) {}
+EOT;
+
+        return $codePrefix . PHP_EOL . $code;
+    }
 }
