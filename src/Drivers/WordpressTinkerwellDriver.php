@@ -56,6 +56,6 @@ try {
 } catch (\Throwable $e) {}
 EOT;
 
-        return $codePrefix . PHP_EOL . $code;
+        return $codePrefix.PHP_EOL.$code;
     }
 }

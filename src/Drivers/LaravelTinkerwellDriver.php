@@ -44,8 +44,8 @@ class LaravelTinkerwellDriver extends TinkerwellDriver
     }
 
     public function injectQueryLogging($code)
-{
-    $codePrefix = <<<'EOT'
+    {
+        $codePrefix = <<<'EOT'
 try {
     \DB::listen(function($query)
     {
@@ -69,6 +69,6 @@ try {
 } catch (\Throwable $e) {}
 EOT;
 
-    return $codePrefix . PHP_EOL . $code;
-}
+        return $codePrefix.PHP_EOL.$code;
+    }
 }
