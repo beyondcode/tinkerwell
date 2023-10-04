@@ -42,4 +42,33 @@ class LaravelTinkerwellDriver extends TinkerwellDriver
             (new \Tinkerwell\Panels\LaravelPanel())->toArray(),
         ];
     }
+
+    public function injectQueryLogging($code)
+    {
+        $codePrefix = <<<'EOT'
+try {
+    \DB::listen(function($query)
+    {
+        try {
+            $grammar = $query->connection->getQueryGrammar();
+
+            $properties = method_exists($grammar, 'substituteBindingsIntoRawSql') ? [
+                'sql' => $grammar->substituteBindingsIntoRawSql(
+                    $query->sql,
+                    $query->connection->prepareBindings($query->bindings)
+                ),
+                'bindings' => [],
+            ] : [
+                'sql' => $query->sql,
+                'bindings' => $query->bindings,
+            ];
+            
+            __tinkerwell_query($properties['sql'], $properties['bindings']);
+        } catch (\Throwable $e) {}
+    });
+} catch (\Throwable $e) {}
+EOT;
+
+        return $codePrefix.PHP_EOL.$code;
+    }
 }

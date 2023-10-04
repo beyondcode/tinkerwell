@@ -105,6 +105,11 @@ abstract class TinkerwellDriver
         return null;
     }
 
+    public function injectQueryLogging($code)
+    {
+        return $code;
+    }
+
     public static function getAvailableDrivers()
     {
         return [
