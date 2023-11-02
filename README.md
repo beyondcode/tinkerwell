@@ -1,6 +1,6 @@
 # Tinkerwell Workbench
 
-![Tinkerwell PHP REPL](https://tinkerwell.app/images/simple_screenshot.png)
+![Tinkerwell PHP REPL](https://tinkerwell.app/images/simple_screenshot.png?v4)
 
 www.tinkerwell.app
 
