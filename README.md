@@ -11,7 +11,7 @@ Docker and even on Laravel Vapor.
 This package contains helpful tools to customize Tinkerwell for your application.
 
 **You do not need to install this package to customize Tinkerwell. Just copy the driver or tool you need into your
-applications' [custom driver](https://tinkerwell.app/docs/3/extending-tinkerwell/custom-drivers). However, if you want
+applications' [custom driver](https://tinkerwell.app/docs/4/extending-tinkerwell/custom-drivers). However, if you want
 to make use of
 autocompletion while implementing your customization, it's helpful to install this package as a dev dependency.**
 
@@ -28,15 +28,21 @@ specific driver yet, Tinkerwell will at least try and load your projects autoloa
 If you have written a custom driver for a framework by yourself, feel free to open a PR and add it to this repository!
 
 For more information about drivers, check out
-the [documentation](https://tinkerwell.app/docs/3/extending-tinkerwell/custom-drivers).
+the [documentation](https://tinkerwell.app/docs/4/extending-tinkerwell/custom-drivers).
 
 ## Panels
 
 With Panels, Tinkerwell offers a concise and visually appealing way to get a snapshot of specific details about your
 application.
 
-For more information about drivers, check out
-the [documentation](https://tinkerwell.app/docs/3/extending-tinkerwell/panels).
+For more information about panels, check out
+the [documentation](https://tinkerwell.app/docs/4/extending-tinkerwell/panels).
+
+## Themes
+If you want to add a custom theme to Tinkerwell, you can find two example themes in the `src/themes` directory.
+
+For more information about custom themes, check out
+the [documentation](https://tinkerwell.app/docs/4/advanced-usage/custom-themes).
 
 ## Contributing
 
