@@ -59,7 +59,7 @@ abstract class TinkerwellDriver
         foreach ($drivers as $driver) {
             /** @var TinkerwellDriver $driver */
             try {
-                $driver = new $driver;
+                $driver = new $driver();
 
                 if ($driver->canBootstrap($projectPath)) {
                     return $driver;
@@ -80,7 +80,7 @@ abstract class TinkerwellDriver
      */
     public static function driversIn($path)
     {
-        if (! is_dir($path)) {
+        if (!is_dir($path)) {
             return [];
         }
         $drivers = [];
@@ -123,6 +123,7 @@ abstract class TinkerwellDriver
             'CraftTinkerwellDriver',
             'Magento2TinkerwellDriver',
             'LumenTinkerwellDriver',
+            'PimcoreTinkerwellDriver',
             'PrestaShopTinkerwellDriver',
             'OctoberCMSTinkerwellDriver',
             'WordpressTinkerwellDriver',
