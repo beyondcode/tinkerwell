@@ -55,7 +55,8 @@ class StatamicTinkerwellDriver extends LaravelTinkerwellDriver
         }
     }
 
-    public function logFilesPath() {
+    public function logFilesPath()
+    {
         return '/storage/logs';
     }
 }
