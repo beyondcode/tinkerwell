@@ -110,6 +110,10 @@ abstract class TinkerwellDriver
         return $code;
     }
 
+    public function logFilesPath() {
+        return '/storage/logs';
+    }
+
     public static function getAvailableDrivers()
     {
         return [
