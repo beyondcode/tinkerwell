@@ -72,7 +72,8 @@ EOT;
         return $codePrefix.PHP_EOL.$code;
     }
 
-    public function logFilesPath() {
+    public function logFilesPath()
+    {
         return '/storage/logs';
     }
 }
