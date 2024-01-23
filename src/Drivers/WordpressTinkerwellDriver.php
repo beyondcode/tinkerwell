@@ -58,4 +58,9 @@ EOT;
 
         return $codePrefix.PHP_EOL.$code;
     }
+
+
+    public function logFilesPath() {
+        return '/wp-content';
+    }
 }
