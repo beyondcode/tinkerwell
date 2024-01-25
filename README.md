@@ -11,7 +11,7 @@ Docker and even on Laravel Vapor.
 This package contains helpful tools to customize Tinkerwell for your application.
 
 **You do not need to install this package to customize Tinkerwell. Just copy the driver or tool you need into your
-applications' [custom driver](https://tinkerwell.app/docs/4/extending-tinkerwell/custom-drivers). However, if you want
+applications' [custom driver](https://tinkerwell.app/docs/4/extending-tinkerwell/custom-drivers) directory. However, if you want
 to make use of
 autocompletion while implementing your customization, it's helpful to install this package as a dev dependency.**
 
@@ -24,7 +24,7 @@ composer require --dev beyondcode/tinkerwell
 When you open your project with Tinkerwell, one of the available drivers will be loaded and bootstrap your application
 to prepare it for code execution within Tinkerwell. This repository holds all available drivers for Tinkerwell. If your
 framework does not have a
-specific driver yet, Tinkerwell will at least try and load your projects autoload file.
+specific driver yet, Tinkerwell will at least try and load your projects' autoload file.
 If you have written a custom driver for a framework by yourself, feel free to open a PR and add it to this repository!
 
 For more information about drivers, check out
@@ -43,6 +43,7 @@ If you want to add a custom theme to Tinkerwell, you can find two example themes
 
 For more information about custom themes, check out
 the [documentation](https://tinkerwell.app/docs/4/advanced-usage/custom-themes).
+
 
 ## Contributing
 
