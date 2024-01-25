@@ -29,4 +29,9 @@ class LumenTinkerwellDriver extends TinkerwellDriver
     {
         return 'Lumen '.app()->version();
     }
+
+    public function logFilesPath()
+    {
+        return '/storage/logs';
+    }
 }

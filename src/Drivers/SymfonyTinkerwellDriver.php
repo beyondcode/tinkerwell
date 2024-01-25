@@ -36,4 +36,9 @@ class SymfonyTinkerwellDriver extends TinkerwellDriver
             'container' => $this->kernel->getContainer(),
         ];
     }
+
+    public function logFilesPath()
+    {
+        return '/var/log';
+    }
 }

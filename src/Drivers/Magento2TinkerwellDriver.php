@@ -97,4 +97,9 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
             return $output->fetch();
         };
     }
+
+    public function logFilesPath()
+    {
+        return '/var/log';
+    }
 }

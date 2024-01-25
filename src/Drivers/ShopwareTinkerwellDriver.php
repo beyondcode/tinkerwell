@@ -90,4 +90,9 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
             'definitions' => $this->container->get(DefinitionInstanceRegistry::class),
         ];
     }
+
+    public function logFilesPath()
+    {
+        return '/var/log';
+    }
 }
