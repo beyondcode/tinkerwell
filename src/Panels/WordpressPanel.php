@@ -11,14 +11,26 @@ class WordpressPanel extends Panel
     {
         $this->setTitle('App Information');
 
+        try {
+            $title = get_bloginfo('name');
+            $version = get_bloginfo('version');
+            $environmentType = wp_get_environment_type();
+            $developmentMode = wp_get_development_mode();
+        } catch (\Throwable $e) {
+            $title = '';
+            $version = '';
+            $environmentType = '';
+            $developmentMode = '';
+        }
+
         $this->setContent(
             Table::make()
                 ->addSection(Section::make()
                     ->setTitle('About WordPress')
-                    ->addRow('Title', get_bloginfo('name'))
-                    ->addRow('Version', get_bloginfo('version'))
-                    ->addRow('Environment Type', function_exists('wp_get_environment_type') ? wp_get_environment_type() : null)
-                    ->addRow('Development Mode', function_exists('wp_get_development_mode') ? wp_get_development_mode() : null)
+                    ->addRow('Title', $title)
+                    ->addRow('Version', $version)
+                    ->addRow('Environment Type', $environmentType)
+                    ->addRow('Development Mode', $developmentMode)
                     ->addRow('WP_DEBUG', defined('WP_DEBUG') ? WP_DEBUG : false)
                     ->addRow('SAVEQUERIES', defined('SAVEQUERIES') ? SAVEQUERIES : false)
                     ->addRow('WP_CACHE', defined('WP_CACHE') ? WP_CACHE : false)
