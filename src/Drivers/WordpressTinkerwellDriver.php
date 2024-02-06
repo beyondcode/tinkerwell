@@ -21,7 +21,7 @@ class WordpressTinkerwellDriver extends TinkerwellDriver
 
     public function appVersion()
     {
-        return 'Wordpress '.get_bloginfo('version');
+        return 'WordPress '.get_bloginfo('version');
     }
 
     /**
