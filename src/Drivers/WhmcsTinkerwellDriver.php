@@ -13,16 +13,16 @@ class WhmcsTinkerwellDriver extends TinkerwellDriver
     {
         require_once __DIR__.'/../vendor/autoload.php';
 
-        if (! defined("ROOTDIR")) {
-            define("ROOTDIR", realpath(__DIR__.'/..'));
+        if (! defined('ROOTDIR')) {
+            define('ROOTDIR', realpath(__DIR__.'/..'));
         }
 
-        if (! defined("WHMCS")) {
-            define("WHMCS", true);
+        if (! defined('WHMCS')) {
+            define('WHMCS', true);
         }
 
-        require_once ROOTDIR."/includes/dbfunctions.php";
-        require_once ROOTDIR."/includes/functions.php";
+        require_once ROOTDIR.'/includes/dbfunctions.php';
+        require_once ROOTDIR.'/includes/functions.php';
 
         $errMgmt = WHMCS\Utility\ErrorManagement::boot();
         $runtimeStorage = new WHMCS\Config\RuntimeStorage();
