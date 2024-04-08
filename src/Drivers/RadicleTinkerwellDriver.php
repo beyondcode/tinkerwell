@@ -11,7 +11,7 @@ class RadicleTinkerwellDriver extends TinkerwellDriver
      * Determine if the driver can be used with the selected project path.
      * You most likely want to check the existence of project / framework specific files.
      *
-     * @param string $projectPath
+     * @param  string  $projectPath
      * @return bool
      */
     public function canBootstrap($projectPath)
@@ -22,17 +22,17 @@ class RadicleTinkerwellDriver extends TinkerwellDriver
     /**
      * Bootstrap the application so that any executed can access the application in your desired state.
      *
-     * @param  string $projectPath
+     * @param  string  $projectPath
      */
     public function bootstrap($projectPath)
     {
-        if (isset($_SERVER['argv']) && !in_array('acorn', $_SERVER['argv'])) {
+        if (isset($_SERVER['argv']) && ! in_array('acorn', $_SERVER['argv'])) {
             putenv('APP_RUNNING_IN_CONSOLE=false');
         }
 
         require "{$projectPath}/vendor/autoload.php";
         require "{$projectPath}/bedrock/application.php";
-        require ABSPATH . '/wp-settings.php';
+        require ABSPATH.'/wp-settings.php';
     }
 
     public function getAvailableVariables()
@@ -50,7 +50,7 @@ class RadicleTinkerwellDriver extends TinkerwellDriver
 
     public function appVersion()
     {
-        return 'Wordpress ' . get_bloginfo('version') . ' ' . app()->version();
+        return 'Wordpress '.get_bloginfo('version').' '.app()->version();
     }
 
     /**
@@ -108,6 +108,7 @@ try {
     });
 } catch (\Throwable $e) {}
 EOT;
-        return $wordpressCodePrefix . $laravelCodePrefix . PHP_EOL . $code;
+
+        return $wordpressCodePrefix.$laravelCodePrefix.PHP_EOL.$code;
     }
 }
