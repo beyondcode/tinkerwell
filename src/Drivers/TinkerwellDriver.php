@@ -134,6 +134,7 @@ abstract class TinkerwellDriver
             'ShopwareTinkerwellDriver',
             'SymfonyTinkerwellDriver',
             'Typo3TinkerwellDriver',
+            'TestbenchTinkerwellDriver',
         ];
     }
 }
