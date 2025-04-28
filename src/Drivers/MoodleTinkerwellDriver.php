@@ -2,7 +2,7 @@
 
 class MoodleTinkerwellDriver extends TinkerwellDriver
 {
-    protected $excludeAppFolders = ["cache", "localcache", "muc", "sessions", "temp", "vendor", "node_modules"];
+    protected $excludeAppFolders = ['cache', 'localcache', 'muc', 'sessions', 'temp', 'vendor', 'node_modules'];
 
     public function canBootstrap($projectPath)
     {

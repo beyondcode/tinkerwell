@@ -2,7 +2,7 @@
 
 class PrestaShopTinkerwellDriver extends TinkerwellDriver
 {
-    protected $excludeAppFolders = ["app/cache", "app/logs", "vendor", "node_modules"];
+    protected $excludeAppFolders = ['app/cache', 'app/logs', 'vendor', 'node_modules'];
 
     public function canBootstrap($projectPath)
     {

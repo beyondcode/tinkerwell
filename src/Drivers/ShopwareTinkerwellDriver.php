@@ -22,7 +22,7 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
      */
     protected $appEnv;
 
-    protected $excludeAppFolders = ["var", "vendor", "node_modules", "public"];
+    protected $excludeAppFolders = ['var', 'vendor', 'node_modules', 'public'];
 
     public function canBootstrap($projectPath): bool
     {

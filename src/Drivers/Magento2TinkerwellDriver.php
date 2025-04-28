@@ -25,7 +25,7 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
      */
     private $version;
 
-    protected $excludeAppFolders = ["var", "vendor", "node_modules", "pub", "generated"];
+    protected $excludeAppFolders = ['var', 'vendor', 'node_modules', 'pub', 'generated'];
 
     public function canBootstrap($projectPath): bool
     {

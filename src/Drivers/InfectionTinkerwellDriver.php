@@ -4,7 +4,7 @@ use Infection\Container;
 
 final class InfectionTinkerwellDriver extends TinkerwellDriver
 {
-    protected $excludeAppFolders = ["vendor", "node_modules"];
+    protected $excludeAppFolders = ['vendor', 'node_modules'];
 
     public function canBootstrap($projectPath)
     {

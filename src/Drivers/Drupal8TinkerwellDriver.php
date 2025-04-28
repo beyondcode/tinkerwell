@@ -2,7 +2,7 @@
 
 class Drupal8TinkerwellDriver extends TinkerwellDriver
 {
-    protected $excludeAppFolders = ["sites/default/files", "vendor", "node_modules"];
+    protected $excludeAppFolders = ['sites/default/files', 'vendor', 'node_modules'];
 
     public function canBootstrap($projectPath)
     {
