@@ -2,6 +2,9 @@
 
 class LaravelTinkerwellDriver extends TinkerwellDriver
 {
+
+    protected $excludeAppFolders = ["vendor", "node_modules", "public", "storage"];
+
     public function canBootstrap($projectPath)
     {
         return file_exists($projectPath.'/public/index.php') &&
@@ -28,6 +31,12 @@ class LaravelTinkerwellDriver extends TinkerwellDriver
     {
         return 'Laravel '.app()->version();
     }
+
+    public function getBasePath()
+    {
+        return base_path();
+    }
+
 
     /**
      * With panels, you can display general information as well as custom information about your
@@ -62,7 +71,7 @@ try {
                 'sql' => $query->sql,
                 'bindings' => $query->bindings,
             ];
-            
+
             __tinkerwell_query($properties['sql'], $properties['bindings']);
         } catch (\Throwable $e) {}
     });

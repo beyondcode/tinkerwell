@@ -22,6 +22,8 @@ class ShopwareTinkerwellDriver extends TinkerwellDriver
      */
     protected $appEnv;
 
+    protected $excludeAppFolders = ["var", "vendor", "node_modules", "public"];
+
     public function canBootstrap($projectPath): bool
     {
         return file_exists($projectPath.'/symfony.lock') &&

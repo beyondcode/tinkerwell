@@ -15,6 +15,9 @@ class Typo3TinkerwellDriver extends TinkerwellDriver
     /** @var string */
     protected $documentation = '';
 
+    /** @var array */
+    protected $excludeAppFolders = ["var", "vendor", "node_modules", "public"];
+
     /**
      * Determine if the driver can be used with the selected project path.
      * You most likely want to check the existence of project / framework specific files.

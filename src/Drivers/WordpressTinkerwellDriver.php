@@ -2,6 +2,8 @@
 
 class WordpressTinkerwellDriver extends TinkerwellDriver
 {
+    protected $excludeAppFolders = ["wp-content/cache", "wp-content/uploads", "wp-content/upgrade", "node_modules", "vendor"];
+
     public function canBootstrap($projectPath)
     {
         return file_exists($projectPath.'/wp-load.php');

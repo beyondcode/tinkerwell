@@ -2,6 +2,8 @@
 
 class PrestaShopTinkerwellDriver extends TinkerwellDriver
 {
+    protected $excludeAppFolders = ["app/cache", "app/logs", "vendor", "node_modules"];
+
     public function canBootstrap($projectPath)
     {
         return is_file($projectPath.'/config/config.inc.php')

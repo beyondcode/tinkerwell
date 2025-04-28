@@ -2,6 +2,8 @@
 
 class OctoberCMSTinkerwellDriver extends TinkerwellDriver
 {
+    protected $excludeAppFolders = ["storage", "vendor", "node_modules", "public"];
+
     public function canBootstrap($projectPath)
     {
         return file_exists($projectPath.'/index.php') &&

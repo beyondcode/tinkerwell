@@ -12,6 +12,7 @@ class StatamicTinkerwellDriver extends LaravelTinkerwellDriver
         'Statamic\Support\Arr',
         'Statamic\Support\Str',
     ];
+    protected $excludeAppFolders = ["vendor", "node_modules", "public", "storage"];
 
     public function bootstrap($projectPath)
     {
@@ -58,5 +59,10 @@ class StatamicTinkerwellDriver extends LaravelTinkerwellDriver
     public function logFilesPath()
     {
         return '/storage/logs';
+    }
+
+    public function getBasePath()
+    {
+        return base_path();
     }
 }

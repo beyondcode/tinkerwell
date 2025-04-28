@@ -6,6 +6,7 @@ use Symfony\Component\Dotenv\Dotenv;
 class SymfonyTinkerwellDriver extends TinkerwellDriver
 {
     protected $kernel;
+    protected $excludeAppFolders = ["var", "vendor", "node_modules", "public"];
 
     public function canBootstrap($projectPath)
     {

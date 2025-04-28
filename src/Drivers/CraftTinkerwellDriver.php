@@ -3,6 +3,7 @@
 class CraftTinkerwellDriver extends TinkerwellDriver
 {
     private $version;
+    protected $excludeAppFolders = ["storage", "vendor", "node_modules", "web/assets"];
 
     public function canBootstrap($projectPath)
     {

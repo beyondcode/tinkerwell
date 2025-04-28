@@ -2,6 +2,8 @@
 
 class NullTinkerwellDriver extends TinkerwellDriver
 {
+    protected $excludeAppFolders = ["vendor", "node_modules"];
+
     public function canBootstrap($projectPath)
     {
         return false;

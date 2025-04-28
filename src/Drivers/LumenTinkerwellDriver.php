@@ -2,6 +2,8 @@
 
 class LumenTinkerwellDriver extends TinkerwellDriver
 {
+    protected $excludeAppFolders = ["vendor", "node_modules", "public", "storage"];
+
     /**
      * Determine if Driver can bootstrap by checking for public/index.php and bootstrap/app.php.
      *

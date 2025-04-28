@@ -2,6 +2,8 @@
 
 class Drupal8TinkerwellDriver extends TinkerwellDriver
 {
+    protected $excludeAppFolders = ["sites/default/files", "vendor", "node_modules"];
+
     public function canBootstrap($projectPath)
     {
         $projectPath = $this->getDrupalPath($projectPath);
@@ -41,6 +43,11 @@ class Drupal8TinkerwellDriver extends TinkerwellDriver
         }
 
         return $projectPath;
+    }
+
+    public function getBasePath()
+    {
+        return $this->getDrupalPath(getcwd());
     }
 
     private function possibleSubdirectories()

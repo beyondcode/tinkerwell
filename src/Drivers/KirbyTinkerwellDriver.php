@@ -2,6 +2,8 @@
 
 class KirbyTinkerwellDriver extends TinkerwellDriver
 {
+    protected $excludeAppFolders = ["site/accounts", "site/cache", "site/sessions", "vendor", "node_modules"];
+
     public function canBootstrap($projectPath)
     {
         return file_exists($projectPath.'/kirby/bootstrap.php');

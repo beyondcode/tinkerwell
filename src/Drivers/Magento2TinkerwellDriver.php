@@ -25,6 +25,8 @@ class Magento2TinkerwellDriver extends TinkerwellDriver
      */
     private $version;
 
+    protected $excludeAppFolders = ["var", "vendor", "node_modules", "pub", "generated"];
+
     public function canBootstrap($projectPath): bool
     {
         return file_exists($projectPath.'/app/etc/env.php');
