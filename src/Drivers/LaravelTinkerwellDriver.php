@@ -2,8 +2,7 @@
 
 class LaravelTinkerwellDriver extends TinkerwellDriver
 {
-
-    protected $excludeAppFolders = ["vendor", "node_modules", "public", "storage"];
+    protected $excludeAppFolders = ['vendor', 'node_modules', 'public', 'storage'];
 
     public function canBootstrap($projectPath)
     {
@@ -36,7 +35,6 @@ class LaravelTinkerwellDriver extends TinkerwellDriver
     {
         return base_path();
     }
-
 
     /**
      * With panels, you can display general information as well as custom information about your

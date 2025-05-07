@@ -16,7 +16,7 @@ class Typo3TinkerwellDriver extends TinkerwellDriver
     protected $documentation = '';
 
     /** @var array */
-    protected $excludeAppFolders = ["var", "vendor", "node_modules", "public"];
+    protected $excludeAppFolders = ['var', 'vendor', 'node_modules', 'public'];
 
     /**
      * Determine if the driver can be used with the selected project path.

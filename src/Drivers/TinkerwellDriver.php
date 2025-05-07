@@ -1,11 +1,9 @@
 <?php
 
 //namespace Tinkerwell\Drivers;
-use Illuminate\Support\Facades\File;
 abstract class TinkerwellDriver
 {
-
-    protected $excludeAppFolders = ["vendor"];
+    protected $excludeAppFolders = ['vendor'];
 
     /**
      * Determine if the driver can be used with the selected project path.
@@ -54,7 +52,7 @@ abstract class TinkerwellDriver
 
             $skipFile = false;
             foreach ($skip as $folder) {
-                if (strpos($relativePath, $folder . DIRECTORY_SEPARATOR) === 0) {
+                if (strpos($relativePath, $folder.DIRECTORY_SEPARATOR) === 0) {
                     $skipFile = true;
                     break;
                 }

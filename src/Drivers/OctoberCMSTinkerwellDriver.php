@@ -2,7 +2,7 @@
 
 class OctoberCMSTinkerwellDriver extends TinkerwellDriver
 {
-    protected $excludeAppFolders = ["storage", "vendor", "node_modules", "public"];
+    protected $excludeAppFolders = ['storage', 'vendor', 'node_modules', 'public'];
 
     public function canBootstrap($projectPath)
     {

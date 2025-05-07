@@ -12,7 +12,7 @@ class StatamicTinkerwellDriver extends LaravelTinkerwellDriver
         'Statamic\Support\Arr',
         'Statamic\Support\Str',
     ];
-    protected $excludeAppFolders = ["vendor", "node_modules", "public", "storage"];
+    protected $excludeAppFolders = ['vendor', 'node_modules', 'public', 'storage'];
 
     public function bootstrap($projectPath)
     {
