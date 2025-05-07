@@ -64,27 +64,13 @@ abstract class TinkerwellDriver
             }
 
             $files[] = [
+                'name' => $file->getFilename(),
                 'relativePath' => $relativePath,
-                'pathname' => $file->getPathname(),
+                'fullPath' => $file->getPathname(),
             ];
         }
 
-        $fileStructure = [];
-        foreach ($files as $file) {
-            $parts = explode(DIRECTORY_SEPARATOR, $file['relativePath']);
-            $filename = array_pop($parts);
-
-            $current = &$fileStructure;
-            foreach ($parts as $part) {
-                if (!isset($current[$part])) {
-                    $current[$part] = [];
-                }
-                $current = &$current[$part];
-            }
-            $current[$filename] = $file['pathname'];
-        }
-
-        return $fileStructure;
+        return $files;
     }
 
     public function getBasePath()
