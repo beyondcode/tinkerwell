@@ -33,7 +33,6 @@ class TestbenchTinkerwellDriver extends LaravelTinkerwellDriver
         return 'Testbench '.app()->version();
     }
 
-
     /**
      * Returns the PHP files in the application to be referenced in the
      * Tinkerwell AI Chat.
@@ -53,7 +52,6 @@ class TestbenchTinkerwellDriver extends LaravelTinkerwellDriver
             new \RecursiveDirectoryIterator($appPath, \FilesystemIterator::SKIP_DOTS)
         );
 
-
         foreach ($iterator as $file) {
             if ($file->getExtension() !== 'php') {
                 continue;
@@ -63,7 +61,7 @@ class TestbenchTinkerwellDriver extends LaravelTinkerwellDriver
 
             $skipFile = false;
             foreach ($skip as $folder) {
-                if (strpos($relativePath, $folder . DIRECTORY_SEPARATOR) === 0) {
+                if (strpos($relativePath, $folder.DIRECTORY_SEPARATOR) === 0) {
                     $skipFile = true;
                     break;
                 }
