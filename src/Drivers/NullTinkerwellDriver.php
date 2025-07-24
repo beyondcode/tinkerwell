@@ -13,4 +13,9 @@ class NullTinkerwellDriver extends TinkerwellDriver
             require $projectPath.'/vendor/autoload.php';
         }
     }
+
+    public function appFiles()
+    {
+        return [];
+    }
 }
