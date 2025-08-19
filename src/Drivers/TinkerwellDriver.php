@@ -1,9 +1,10 @@
 <?php
 
 //namespace Tinkerwell\Drivers;
-
 abstract class TinkerwellDriver
 {
+    protected $excludeAppFolders = ['vendor'];
+
     /**
      * Determine if the driver can be used with the selected project path.
      * You most likely want to check the existence of project / framework specific files.
@@ -23,6 +24,56 @@ abstract class TinkerwellDriver
     public function appVersion()
     {
         return '';
+    }
+
+    /**
+     * Returns the PHP files in the application to be referenced in the
+     * Tinkerwell AI Chat.
+     *
+     * @return array
+     */
+    public function appFiles()
+    {
+        $skip = $this->excludeAppFolders;
+
+        $appPath = $this->getBasePath();
+
+        $files = [];
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($appPath, \FilesystemIterator::SKIP_DOTS)
+        );
+
+        foreach ($iterator as $file) {
+            if ($file->getExtension() !== 'php') {
+                continue;
+            }
+
+            $relativePath = substr($file->getPathname(), strlen($appPath) + 1);
+
+            $skipFile = false;
+            foreach ($skip as $folder) {
+                if (strpos($relativePath, $folder.DIRECTORY_SEPARATOR) === 0) {
+                    $skipFile = true;
+                    break;
+                }
+            }
+            if ($skipFile) {
+                continue;
+            }
+
+            $files[] = [
+                'name' => $file->getFilename(),
+                'relativePath' => $relativePath,
+                'fullPath' => $file->getPathname(),
+            ];
+        }
+
+        return $files;
+    }
+
+    public function getBasePath()
+    {
+        return getcwd();
     }
 
     /**
